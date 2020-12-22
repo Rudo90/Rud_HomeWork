@@ -18,6 +18,7 @@ public class Blog implements Commands {
         System.out.println("Please input 2 to SEARCH a post");
         System.out.println("Please input 3 to PRINT a post by CATEGORY");
         System.out.println("Please input 4 to PRINT ALL POSTS");
+        System.out.println("Please input 5 to SEARCH a post BY TITLE");
 
     }
 
@@ -46,6 +47,9 @@ public class Blog implements Commands {
                 case ALL_POSTS:
                     printAllPosts();
                     break;
+                case SEARCH_BY_TITLE:
+                    getPostByTitle();
+                    break;
                 default:
                     System.out.println("Wrong command! Please check the correct one");
                     printCommands();
@@ -71,8 +75,8 @@ public class Blog implements Commands {
     public static void searchPostsByKeyword() {
 
         System.out.println("Please input keyword to search a post");
+        String keyword = scanner.nextLine();
         try {
-            String keyword = scanner.nextLine();
             postStorage.searchPostsByKeyword(keyword);
             postStorage.keyWordIsWrong(keyword);
         } catch (MyExceptionList_2 e) {
@@ -96,5 +100,16 @@ public class Blog implements Commands {
         System.out.println("Here is the list of all posts");
         postStorage.printAllPosts();
 
+    }
+
+
+    public static void getPostByTitle(){
+        System.out.println("Please input post title");
+        String title = scanner.nextLine();
+        try{
+            postStorage.getPostByTitle(title);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 }

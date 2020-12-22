@@ -7,4 +7,5 @@ public interface Commands {
     String SEARCH_POST = "2";
     String POSTS_BY_CATEGORY = "3";
     String ALL_POSTS = "4";
+    String SEARCH_BY_TITLE = "5";
 }

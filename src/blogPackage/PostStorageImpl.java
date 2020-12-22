@@ -27,8 +27,8 @@ public class PostStorageImpl implements PostStorage {
 
         for (int i = 0; i < size; i++) {
             if (postStorage[i].getTitle().contains(title)) {
-                return postStorage[i];
-            }
+                System.out.println(postStorage[i]);
+            } else throw new NullPointerException();
         }
         return null;
     }
@@ -45,7 +45,7 @@ public class PostStorageImpl implements PostStorage {
 
     public void keyWordIsWrong (String keyword) throws MyExceptionList_2 {
         for (int i = 0; i < size; i++) {
-            if (!postStorage[i].getTitle().equals(keyword) || !postStorage[i].getText().equals(keyword)) {
+            if (!postStorage[i].getTitle().equals(keyword) && !postStorage[i].getText().equals(keyword)) {
                 throw new MyExceptionList_2("Wrong keyword!");
             }
         }
@@ -78,5 +78,6 @@ public class PostStorageImpl implements PostStorage {
             }
         }
     }
+
 
 }
