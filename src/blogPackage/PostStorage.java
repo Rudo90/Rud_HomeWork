@@ -4,9 +4,10 @@ public interface PostStorage {
 
     void add (Post post);
     Post getPostByTitle (String title);
-    void searchPostsByKeyword (String keyword) throws MyExceptionList_2;
+    void searchPostsByKeyword (String keyword);
     void printAllPosts ();
-    void printPostsByCategory (String category) throws MyExceptionsList_1;
-
+    void printPostsByCategory (String category);
+    void printCategoryNotExist (String category) throws MyExceptionsList_1;
+    void keyWordIsWrong (String keyword) throws MyExceptionList_2;
 
 }

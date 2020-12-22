@@ -21,7 +21,7 @@ public class Blog implements Commands {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyExceptionsList_1, MyExceptionList_2 {
 
         boolean isRun = true;
 
@@ -74,19 +74,20 @@ public class Blog implements Commands {
         try {
             String keyword = scanner.nextLine();
             postStorage.searchPostsByKeyword(keyword);
+            postStorage.keyWordIsWrong(keyword);
         } catch (MyExceptionList_2 e) {
             System.err.println(e.getMessage());
         }
     }
 
     public static void printPostsByCategory() {
-
         System.out.println("Please input post category");
+        String category = scanner.nextLine();
         try {
-            String category = scanner.nextLine();
-            postStorage.printPostsByCategory(category);
-        } catch (MyExceptionsList_1 e) {
-            System.err.println(e.getMessage());
+        postStorage.printPostsByCategory(category);
+        postStorage.printCategoryNotExist(category);
+        } catch (MyExceptionsList_1 ex) {
+            ex.printStackTrace();
         }
     }
 
