@@ -90,8 +90,8 @@ public class Blog implements Commands {
         try {
         postStorage.printPostsByCategory(category);
         postStorage.printCategoryNotExist(category);
-        } catch (MyExceptionsList_1 ex) {
-            ex.printStackTrace();
+        } catch (MyExceptionsList_1 e) {
+            e.printStackTrace();
         }
     }
 
@@ -108,7 +108,7 @@ public class Blog implements Commands {
         String title = scanner.nextLine();
         try{
             postStorage.getPostByTitle(title);
-        } catch (NullPointerException e){
+        } catch (PostNotFoundException e){
             e.printStackTrace();
         }
     }

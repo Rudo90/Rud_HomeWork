@@ -23,12 +23,12 @@ public class PostStorageImpl implements PostStorage {
     }
 
     @Override
-    public Post getPostByTitle(String title) {
+    public Post getPostByTitle(String title) throws PostNotFoundException {
 
         for (int i = 0; i < size; i++) {
             if (postStorage[i].getTitle().contains(title)) {
                 System.out.println(postStorage[i]);
-            } else throw new NullPointerException();
+            } else throw new PostNotFoundException("No post available!");
         }
         return null;
     }
@@ -50,6 +50,7 @@ public class PostStorageImpl implements PostStorage {
             }
         }
     }
+
     @Override
     public void printAllPosts() {
 
@@ -78,6 +79,5 @@ public class PostStorageImpl implements PostStorage {
             }
         }
     }
-
 
 }
