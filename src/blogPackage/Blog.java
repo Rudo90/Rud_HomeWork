@@ -77,8 +77,7 @@ public class Blog implements Commands {
         System.out.println("Please input keyword to search a post");
         String keyword = scanner.nextLine();
         try {
-            postStorage.searchPostsByKeyword(keyword);
-            postStorage.keyWordIsWrong(keyword);
+            System.out.println(postStorage.searchPostsByKeyword(keyword));
         } catch (MyExceptionList_2 e) {
             System.err.println(e.getMessage());
         }
@@ -88,10 +87,9 @@ public class Blog implements Commands {
         System.out.println("Please input post category");
         String category = scanner.nextLine();
         try {
-        postStorage.printPostsByCategory(category);
-        postStorage.printCategoryNotExist(category);
+            System.out.println(postStorage.printPostsByCategory(category));
         } catch (MyExceptionsList_1 e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -107,9 +105,9 @@ public class Blog implements Commands {
         System.out.println("Please input post title");
         String title = scanner.nextLine();
         try{
-            postStorage.getPostByTitle(title);
+            System.out.println(postStorage.getPostByTitle(title));
         } catch (PostNotFoundException e){
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }
